@@ -1,0 +1,440 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    display: flex;
+}
+
+/* Navigation Bar */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #fff;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 200px;
+    max-width: 100%;
+    margin: border-box;
+}
+
+.nav-left a, .nav-right a {
+    text-decoration: none;
+    color: #000;
+    font-weight: regular;
+    padding: 0 10px;
+    transition: transform 0.5s ease, color 0.3s ease;
+    font-size: 16px;
+    
+}
+
+.nav-left a:hover, .nav-right a:hover {
+    color: #f3b23a;
+    font-weight: bold;
+    opacity: 1;
+    transform: scale(1.1);
+    
+}
+
+.nav-right {
+    display: flex;
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 500px; /* To account for the fixed navbar */
+    right: 200px;
+    width: 150px;
+    padding: 0px;
+    background-color: #f7f7f7;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #797979;
+    transition: transform 0.5s ease, color 0.5s ease;
+    font-size: small;
+    text-align: right;
+    display: block;
+}
+
+.sidebar ul li a:hover {
+    color: #000000;
+    transform: translateX(10px);
+    font-weight: bold;
+    opacity: 1;
+}
+
+/* Main Content */
+main {
+    display: flex;
+    margin-top: 100px; /* Leave space for fixed navbar */
+    padding: 20px 200px;
+}
+.project-content {
+    flex: 1;
+    margin-right: 220px;
+}
+/* Hero Section */
+.hero-section {
+    width: 100%;
+    max-width: 1000px;
+    height: auto;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 20px;
+}
+.hero-section img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 20px;
+    margin-bottom: 60px;
+    transition: transform 0.2s ease;
+    animation: growImage 10s infinite alternate;
+}
+
+@keyframes growImage {
+    0% {
+        transform: scale(1); /* Original size */
+    }
+    100% {
+        transform: scale(1.1); /* Grows to 10% larger */
+    }
+}
+
+/* Scroll Down Button */
+.scroll-down-btn {
+    position: fixed;
+    bottom: 100px;
+    right: 200px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color:#FFA600; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    text-decoration: none; 
+}
+
+.scroll-down-btn .scroll-circle {
+    font-size: 1.5rem;
+    color: #fff; /* White arrow */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.scroll-down-btn:hover {
+    background-color: #000000; 
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+/*Flipped (rotated state) */
+.scroll-down-btn.flipped .scroll-circle {
+    transform: rotate(180deg);
+    transition: transform 0.3s ease;
+}
+
+.scroll-down-btn .scroll-circle {
+    transition: transform 0.3s ease;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* Project Info */
+.project-info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding-right: 20px;
+}
+
+.project-details {
+    flex: 0.4;
+}
+
+.project-sub-details {
+    margin-top: 10px;
+    color: #797979;
+    font-size: 90%;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.project-description {
+    flex: 0.6;
+    padding-left: 20px;
+}
+
+/* Content Sections */
+.content-section {
+    margin-top: 50px;
+    scroll-margin-top: 120px;
+}
+
+.content-section h3 {
+    color: #f3b23a;
+    margin-bottom: 20px;
+}
+
+.content-section p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Content section Fade-in */
+
+.content-section fade-in {
+    opacity: 0;
+    transform: translateY(20px); /* Slightly translate the element downwards */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Smooth transition */
+}
+
+.content-section fade-in.visible {
+    opacity: 1;
+    transform: translateY(0); /* Reset translation */
+}
+
+/* Playtesting Section - Two Columns */
+.playtesting-section {
+display: flex;
+justify-content: space-between;
+column-gap: 80px; /* space between two columns */
+margin-top: 20px;
+}
+
+.playtesting-column {
+    flex: 1; /* make each column of eaqual width */
+    padding: 10px; /* padding inside each section */
+}
+
+.playtesting-column h4 {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.playtesting-column p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Game Concept Section */
+#concept {
+    display: flex;
+    align-items: flex-start; /* Align the items to the top */
+    justify-content: space-between;
+    column-gap: 40px; /* Space between text and image */
+    padding: 20px 0;
+    margin-top: 60px;
+}
+
+#concept .text {
+    flex: 0.8; /* Take 60% of the container's width */
+}
+
+#concept .image {
+    flex: 0.4; /* Take 40% of the container's width */
+}
+
+#concept h3 {
+    color: #f3b23a;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+#concept h4 {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#concept p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+#concept img {
+    width: 100%;
+    max-width: 450px; /* Adjust width as necessary */
+    border-radius: 10px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    animation: grow 10s infinite alternate;
+}
+
+
+/* Wildest Cards Section */
+.wildcards-section {
+    text-align: center;
+    padding: 20px;
+}
+
+.carousel-container {
+    position: relative;
+    width: 80%;
+    margin: 40px auto;
+    overflow: hidden;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.card {
+    min-width: calc(100% / 3);/* Show only 3 cards per view */
+    box-sizing: border-box;
+    padding-right: 10px;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Dots Navigation */
+.carousel-dots {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.carousel-dots .dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 5px;
+    background-color: #ccc;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-dots .dot.active {
+    background-color: #f3b23a;
+}
+
+/* Last 2 Image Section */
+
+.image-section {
+    display: flex;
+    flex-direction: column;
+    gap: 40px; /* Spacing between the images */
+    width: 100%;
+    max-width: 1000px;
+}
+
+/* Individual image box */
+.image-box {
+    padding: 0px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+
+/* Images */
+.image-box img {
+    max-width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+/* Social Links Bar */
+.social-links-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 100px;
+    padding: 15px;
+    background-color: #fff; /* Bar background color */
+    border-radius: 20px; /* Rounded edges */
+    width: auto;
+}
+
+/* Social Media Links inside the bar */
+.social-links-bar a {
+    padding: 0 50px; /* Spacing between links */
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s ease, font-weight 0.3s ease;
+    font-size: 1rem;
+}
+
+/* Only text gets highlighted and bold on hover */
+.social-links-bar a:hover {
+    color: #f3b23a; /* Highlighted in yellow */
+    font-weight: bold;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1200px) {
+    main {
+        padding: 20px;
+    }
+
+    .project-info {
+        flex-direction: column;
+    }
+
+    .project-details, .project-description {
+        padding-left: 0;
+    }
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+    .sidebar {
+        display: none; /* Hide the sidebar on small screens */
+    }
+
+    main {
+        flex-direction: column;
+        margin-top: 80px;
+    }
+
+    .project-info {
+        flex-direction: column;
+        margin-top: 20px;
+    }
+}

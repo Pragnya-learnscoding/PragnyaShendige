@@ -1,0 +1,172 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    margin: 0;
+    background-color: #f5f5f5;
+}
+
+/* Navigation Bar */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #fff;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 200px;
+    max-width: 100%;
+    margin: border-box;
+}
+
+.nav-left a, .nav-right a {
+    text-decoration: none;
+    color: #000;
+    font-weight: regular;
+    padding: 0 10px;
+    transition: transform 0.5s ease, color 0.3s ease;
+    font-size: 16px;
+    
+}
+
+.nav-left a:hover, .nav-right a:hover {
+    color: #f3b23a;
+    font-weight: bold;
+    opacity: 1;
+    transform: scale(1.1);
+    
+}
+
+.nav-right {
+    display: flex;
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 500px; /* To account for the fixed navbar */
+    right: 200px;
+    width: 150px;
+    padding: 0px;
+    background-color: #f7f7f7;
+    height: 100%;
+    overflow-y: auto;
+}
+
+main.portfolio-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 120px 300px 50px 300px; 
+    margin-top: 50px;
+}
+
+
+
+.portfolio-card {
+    display: block;
+    position: relative;
+    width: 48%; 
+    margin-bottom: 50px;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    text-decoration: none;
+    color: inherit;
+}
+
+.portfolio-card:hover {
+    transform: scale(1.05); /* Keep the hover effect */
+}
+
+.portfolio-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    animation: zoomAndSlide 10s infinite alternate ease-in-out;
+}
+
+/* Define the zoom and slide animation */
+@keyframes zoomAndSlide {
+    0% {
+        transform: scale(1) translateX(0); /* Normal size and position */
+    }
+    100% {
+        transform: scale(1.1) translateX(20px); /* Zoom and slide */
+    }
+}
+
+.portfolio-info {
+    padding: 20px;
+}
+
+.portfolio-info h3 {
+    color: #f3b23a;
+    margin-bottom: 10px;
+}
+
+.portfolio-summary {
+    position: absolute;
+    top: 100%; 
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    background-color: #fff;
+    transition: top 0.4s ease, opacity 0.4s ease; 
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1;
+}
+
+.portfolio-card:hover .portfolio-summary {
+    top: 0; 
+    opacity: 1;
+    visibility: visible;
+}
+
+.portfolio-summary h3 {
+    color: #f3b23a;
+    margin-bottom: 10px;
+}
+
+.portfolio-summary p {
+    font-size: 0.9rem;
+    color: #333;
+}
+
+@media screen and (max-width: 1200px) {
+    main.portfolio-container {
+        padding: 120px 100px 50px 100px; 
+    }
+}
+
+@media screen and (max-width: 768px) {
+    nav {
+        padding: 15px 30px;
+    }
+
+    .nav-right {
+        display: none; 
+    }
+
+    main.portfolio-container {
+        padding: 120px 30px 50px 30px; 
+    }
+
+    .portfolio-card {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
